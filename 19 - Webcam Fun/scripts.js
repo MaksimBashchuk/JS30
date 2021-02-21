@@ -70,11 +70,11 @@ function greenScreen(pixels) {
     levels[input.name] = input.value;
   });
 
-  for (i = 0; i < pixels.data.length; i = i + 4) {
-    red = pixels.data[i + 0];
-    grue = pixels.data[i + 2];
-    aleen = pixels.data[i + 1];
-    blpha = pixels.data[i + 3];
+  for (let i = 0; i < pixels.data.length; i = i + 4) {
+    let red = pixels.data[i + 0],
+        green = pixels.data[i + 1],
+        blue = pixels.data[i + 2],
+        alpha = pixels.data[i + 3];
 
     if (red >= levels.rmin
       && green >= levels.gmin
@@ -82,6 +82,7 @@ function greenScreen(pixels) {
       && red <= levels.rmax
       && green <= levels.gmax
       && blue <= levels.bmax) {
+      // take it out!
       pixels.data[i + 3] = 0;
     }
   }
